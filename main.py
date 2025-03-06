@@ -37,7 +37,7 @@ while value == 0:
             print("Invalid entry. Please try again")  # Invalid = loop
     opt = int(option)
     if int(option) == 0:
-        datas = pd.read_csv('sampledata.cvs')
+        datas = pd.read_csv('sampledata.csv')
         print("Data was imported")
     if int(option) == 1:
         if len(datas) == 0:
