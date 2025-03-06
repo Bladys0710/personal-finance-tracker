@@ -1,0 +1,18 @@
+# Python bytecode files
+__pycache__/
+*.py[cod]
+
+# Virtual environment directories
+.venv/
+env/
+
+# IDE and editor files
+# PyCharm project files
+.idea/
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.temp
