@@ -3,6 +3,7 @@ import pandas as pd
 
 from data_management import delete_transaction,edit_transaction
 from data_analysis import analysis_data
+from visualization import visualization_analysis
 
 print("""
  _                          __                     ___                  
@@ -38,6 +39,7 @@ while value == 0:
     opt = int(option)
     if int(option) == 0:
         datas = pd.read_csv('sampledata.cvs')
+        datas = datas.dropna()
         print("Data was imported")
     if int(option) == 1:
         if len(datas) == 0:
@@ -60,7 +62,8 @@ while value == 0:
     if int(option) == 8:
         analysis_data(datas, opt)
     if int(option) == 9:
-        print("")
+        visualization_analysis(datas)
+        print("Visualization completed")
     if int(option) == 10:
         datas.to_csv("sampledata.csv")
         print("transactions saved successfully")
