@@ -40,7 +40,7 @@ while value == 0:
     if int(option) == 0:
         datas = pd.read_csv('sampledata.cvs')
         datas = datas.dropna()
-        print("Data was imported")
+        print("Data was imported & cleaned")
     if int(option) == 1:
         if len(datas) == 0:
             print("Nothing to see here. Try adding some transactions first")
