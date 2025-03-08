@@ -5,6 +5,7 @@ def visualization_analysis(datas):
     plt.figure(1)
     # Aggregate the data on `Date` and `Type`
     df_agg = datas.groupby(['Date', 'Type'])['Amount'].sum().reset_index()
+
     # Filter the DataFrame to only include rows where `Type` is 'Expense'
     df_filtered = df_agg[df_agg['Type'] == 'Expense'].copy()
     # Plot a line for the filtered data
@@ -25,7 +26,9 @@ def visualization_analysis(datas):
     # Figure 2: Total Spending Amount Over Time for Expenses
     plt.figure(2)
     # Aggregate the data on `Category` and sum the `Amount`
+
     df_category_agg = datas.groupby('Category')['Amount'].sum().reset_index()
+
     # Create a bar chart using `Category` on the x-axis and `Amount` on the y-axis.
     plt.bar(df_category_agg['Category'], df_category_agg['Amount'])
     # Set the title of the chart
@@ -46,3 +49,4 @@ def visualization_analysis(datas):
 
     # Show the plot
     plt.show()
+
