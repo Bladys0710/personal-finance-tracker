@@ -1,8 +1,9 @@
 import pandas as pd
 # import functions
 
-from data_management import delete_transaction,edit_transaction
+from data_management import add_transaction,view_by_date_range,delete_transaction,edit_transaction
 from data_analysis import analysis_data
+from visualization import visualization_analysis
 
 print("""
  _                          __                     ___                  
@@ -37,8 +38,10 @@ while value == 0:
             print("Invalid entry. Please try again")  # Invalid = loop
     opt = int(option)
     if int(option) == 0:
-        datas = pd.read_csv('sampledata.csv')
-        print("Data was imported")
+        datas = pd.read_csv('sampledata.cvs')
+        datas = datas.dropna()
+        print("Data was imported & cleaned")
+
     if int(option) == 1:
         if len(datas) == 0:
             print("Nothing to see here. Try adding some transactions first")
@@ -46,9 +49,9 @@ while value == 0:
             print("All Transactions:")
             print(datas)
     if int(option) == 2:
-        print("")
+        view_by_date_range(datas)
     if int(option) == 3:
-        print("")
+        datas = add_transaction(datas)
     if int(option) == 4:
         edit_transaction(datas)
     if int(option) == 5:
@@ -60,7 +63,8 @@ while value == 0:
     if int(option) == 8:
         analysis_data(datas, opt)
     if int(option) == 9:
-        print("")
+        visualization_analysis(datas)
+        print("Visualization completed")
     if int(option) == 10:
         datas.to_csv("sampledata.csv")
         print("transactions saved successfully")
