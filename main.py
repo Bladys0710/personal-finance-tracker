@@ -1,7 +1,7 @@
 import pandas as pd
 # import functions
 
-from data_management import delete_transaction,edit_transaction
+from data_management import add_transaction,view_by_date_range,delete_transaction,edit_transaction
 from data_analysis import analysis_data
 from visualization import visualization_analysis
 
@@ -48,9 +48,9 @@ while value == 0:
             print("All Transactions:")
             print(datas)
     if int(option) == 2:
-        print("")
+        view_by_date_range(datas)
     if int(option) == 3:
-        print("")
+        datas = add_transaction(datas)
     if int(option) == 4:
         edit_transaction(datas)
     if int(option) == 5:
